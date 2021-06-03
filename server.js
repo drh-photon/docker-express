@@ -1,8 +1,10 @@
 const express = require('express');
+const func = require('./simple/func')
 const app = express()
 
-app.get('/', (req, res) => res.send('test1'));
+const port = process.env.port || 3000
+app.get('/', (req, res) => res.send(func()));
 
-app.listen(3000, () => {
-    console.log('running on port 3000');
+app.listen(port, () => {
+    console.log(`running on port ${port}`);
 })
